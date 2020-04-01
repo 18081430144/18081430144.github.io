@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>我的博客搭建过程1</title>
+    <url>/2020/03/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="一、hexo的环境配置"><a href="#一、hexo的环境配置" class="headerlink" title="一、hexo的环境配置"></a>一、hexo的环境配置</h2><h5 id="1-点击安装Node-js"><a href="#1-点击安装Node-js" class="headerlink" title="1.点击安装Node.js"></a>1.点击安装Node.js</h5><p>完成后在CMD窗口中输入命令：“node -v” 。</p>
+<p>若结果显示版本号，则表示Node.js安装成功。如下图所示。</p>
+<p><img src="C:%5CUsers%5Clenovo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200328184048301.png" alt="image-20200328184048301"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>文章名字</title>
+    <url>/2020/04/01/%E6%96%87%E7%AB%A0%E5%90%8D%E5%AD%97/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+</search>
