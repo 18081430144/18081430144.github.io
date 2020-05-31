@@ -71,19 +71,19 @@
 <p>注意：仓库名称必须写为username.github.io其中username是你注册Github使用的用户名。</p>
 </blockquote>
 <h5 id="3-查看仓库配置："><a href="#3-查看仓库配置：" class="headerlink" title="3.查看仓库配置："></a>3.查看仓库配置：</h5><p>点击仓库右上角的Settings选项。</p>
-<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/21-1590635260856.png" alt="21"></p>
+<p><img src="/../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/21.png" alt="21"></p>
 <p>如果没有发现.ssh目录存在，则表明当前用户还没有ssh密钥，则可以继续下面两步：</p>
-<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/22-1590635291306.png" alt="22"></p>
+<p><img src="/../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/22.png" alt="22"></p>
 <p>其中双引号的内容修改为你自己在Github上注册的邮箱。过程中当需要用户输入时，可以直接回车。指令执行结果如下图所示。</p>
-<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/23-1590635322628.jpg" alt="23"></p>
+<p><img src="/../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/23.jpg" alt="23"></p>
 <p>图中的~/ssd/.ssh/id_rsa.pub文件就是我们需要的，他保护着我们的public key。</p>
 <h5 id="4-Github账户添加SSH公钥："><a href="#4-Github账户添加SSH公钥：" class="headerlink" title="4.Github账户添加SSH公钥："></a>4.Github账户添加SSH公钥：</h5><p>在Github账户的Settings-&gt;SSH and GPG keys 下单击N任务SSH key,将id_rsa.pub文件中的所有内容拷贝进去。</p>
 <h1 id="二、绑定Hexo和Github"><a href="#二、绑定Hexo和Github" class="headerlink" title="二、绑定Hexo和Github"></a>二、绑定Hexo和Github</h1><h5 id="1-修改本地站点配置文件："><a href="#1-修改本地站点配置文件：" class="headerlink" title="1.修改本地站点配置文件："></a>1.修改本地站点配置文件：</h5><p>打开站点目录（blog)下的_config.yml文件，将最后一部分修改为</p>
-<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/24-1590635340853.png" alt="24"></p>
+<p><img src="/../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/24.png" alt="24"></p>
 <p>这段源码的意思是：我们将采用git工具来做Hexo博客的部署，部署在哪里呢？位置在Github上的username/username.github.io.git这样一个仓库里，切实仓库的master分支上。注意：上述冒号的后面都用一个空格。</p>
-<h5 id="2-安装关联hexo-和git的工具："><a href="#2-安装关联hexo-和git的工具：" class="headerlink" title="2.安装关联hexo 和git的工具："></a>2.安装关联hexo 和git的工具：</h5><p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/25-1590635372892.png" alt="25"></p>
+<h5 id="2-安装关联hexo-和git的工具："><a href="#2-安装关联hexo-和git的工具：" class="headerlink" title="2.安装关联hexo 和git的工具："></a>2.安装关联hexo 和git的工具：</h5><p><img src="/../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/25.png" alt="25"></p>
 <p>如果最后可以看到这个工具 的版本号，则表明安装成功。</p>
-<h1 id="三、Hexo升天"><a href="#三、Hexo升天" class="headerlink" title="三、Hexo升天"></a>三、Hexo升天</h1><h5 id="1-部署Hexo-执行以下命令"><a href="#1-部署Hexo-执行以下命令" class="headerlink" title="1.部署Hexo:执行以下命令"></a>1.部署Hexo:执行以下命令</h5><p><img src="../images/26.png" alt="26"></p>
+<h1 id="三、Hexo升天"><a href="#三、Hexo升天" class="headerlink" title="三、Hexo升天"></a>三、Hexo升天</h1><h5 id="1-部署Hexo-执行以下命令"><a href="#1-部署Hexo-执行以下命令" class="headerlink" title="1.部署Hexo:执行以下命令"></a>1.部署Hexo:执行以下命令</h5><p><img src="/../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/26.png" alt="26"></p>
 <p>这个命令会将本地博客根目录（blog)下public文件夹里的所有的文件上传至Github上的username/username.github.io.git这个仓库。d:depoly是部署的意思。</p>
 <h5 id="2-博客预览："><a href="#2-博客预览：" class="headerlink" title="2.博客预览："></a>2.博客预览：</h5><p>在浏览器中输入<a href="https://username.github.io,如果看到新页面则大功告成。" target="_blank" rel="noopener">https://username.github.io,如果看到新页面则大功告成。</a></p>
 <blockquote>
