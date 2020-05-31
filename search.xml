@@ -96,9 +96,9 @@
 <p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/36-1590912247806.jpg" alt="36"></p>
 <p>3.启动hexo服务</p>
 <p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/37-1590912252974.png" alt="37"></p>
-<p>如果发现有“Hexo is running at <a href="http://localhost:4000/字符串，则表示启动成功，hexo当前就运行在该网址上面。上述指令中的s表示server。" target="_blank" rel="noopener">http://localhost:4000/字符串，则表示启动成功，hexo当前就运行在该网址上面。上述指令中的s表示server。</a></p>
+<p>如果发现有“Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 字符串，则表示启动成功，hexo当前就运行在该网址上面。上述指令中的s表示server。</p>
 <p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/38-1590912259097.jpg" alt="38"></p>
-<p>4.博客预览：在浏览器中输入上述网址<a href="http://localhost:4000/,如果看到新页面则大功告成。" target="_blank" rel="noopener">http://localhost:4000/,如果看到新页面则大功告成。</a></p>
+<p>4.博客预览：在浏览器中输入上述网址<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ,如果看到新页面则大功告成。</p>
 ]]></content>
   </entry>
   <entry>
@@ -122,7 +122,7 @@
 <p>这段源码的意思是：我们将采用git工具来做Hexo博客的部署，部署在哪里呢？位置在Github上的username/username.github.io.git这样一个仓库里，切实仓库的master分支上。注意：上述冒号的后面都用一个空格。</p>
 <h5 id="2-安装关联hexo-和git的工具："><a href="#2-安装关联hexo-和git的工具：" class="headerlink" title="2.安装关联hexo 和git的工具："></a>2.安装关联hexo 和git的工具：</h5><p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/25-1590635372892.png" alt="25"></p>
 <p>如果最后可以看到这个工具 的版本号，则表明安装成功。</p>
-<h1 id="三、Hexo升天"><a href="#三、Hexo升天" class="headerlink" title="三、Hexo升天"></a>三、Hexo升天</h1><h5 id="1-部署Hexo-执行以下命令"><a href="#1-部署Hexo-执行以下命令" class="headerlink" title="1.部署Hexo:执行以下命令"></a>1.部署Hexo:执行以下命令</h5><p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%BA%8C/26-1590635382675.png" alt="26"></p>
+<h1 id="三、Hexo升天"><a href="#三、Hexo升天" class="headerlink" title="三、Hexo升天"></a>三、Hexo升天</h1><h5 id="1-部署Hexo-执行以下命令"><a href="#1-部署Hexo-执行以下命令" class="headerlink" title="1.部署Hexo:执行以下命令"></a>1.部署Hexo:执行以下命令</h5><p><img src="../images/26.png" alt="26"></p>
 <p>这个命令会将本地博客根目录（blog)下public文件夹里的所有的文件上传至Github上的username/username.github.io.git这个仓库。d:depoly是部署的意思。</p>
 <h5 id="2-博客预览："><a href="#2-博客预览：" class="headerlink" title="2.博客预览："></a>2.博客预览：</h5><p>在浏览器中输入<a href="https://username.github.io,如果看到新页面则大功告成。" target="_blank" rel="noopener">https://username.github.io,如果看到新页面则大功告成。</a></p>
 <blockquote>
