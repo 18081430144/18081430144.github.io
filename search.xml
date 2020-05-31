@@ -41,11 +41,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>文章名字</title>
-    <url>/2020/04/01/%E6%96%87%E7%AB%A0%E5%90%8D%E5%AD%97/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>博客主题换装秀</title>
     <url>/2020/04/03/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E6%8D%A2%E8%A3%85%E7%A7%80/</url>
     <content><![CDATA[<p>刚新建好的博客比较丑，所以我们把它变得美美的！</p>
@@ -77,7 +72,34 @@
   <entry>
     <title>我的博客搭建过程三</title>
     <url>/2020/05/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="教你如何写博文"><a href="#教你如何写博文" class="headerlink" title="教你如何写博文"></a>教你如何写博文</h1><p>Typora:单栏实时显示排版样式，需要用户熟悉Markdown语法。</p>
+<p>Visual Studio Code:双栏显示，一栏是编辑区，一栏是显示区。</p>
+<blockquote>
+<p>建议大家使用本地开发工具里的Typora。</p>
+</blockquote>
+<p>一、新建博文</p>
+<p>首先我们在blog/source/_posts文件夹下新建文本文档，把后缀名写成.md就可以以Typora软件打开直接可以写博客啦！</p>
+<p>第二种新建博文可以执行以下语句</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/31-1590912164213.png" alt="31"></p>
+<p>其中filename可以用你喜欢的博文名字替代，命令执行完后，就会在_posts下生成一篇名叫filename的新文章。同时你会发现编辑器Typora也打开了，你就可以在里面编辑内容了！</p>
+<p>1.设置编辑器路径：在站点根目录（blog\）下新建scripts目录，软后在新建auto_open.js，在文件中填入以下内容：</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/32-1590912199907.png" alt="32"></p>
+<p>注意，start后面的编辑器路径得修改为你电脑上Typora 实际安装的位置。如果忘记自己安装的Hexo 是什么版本，可以使用hexo -v指令来查看。本步骤通常只需要在你的电脑上操作一次。</p>
+<p>二、查看本地新博文</p>
+<p>1.清除旧数据（根目录下的public文件夹存放着旧右博客生成的HTML网页）</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/33-1590912219101.png" alt="33"></p>
+<p>安装完后如果看到public文件被删除，则说明执行成功。</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/34-1590912226156.png" alt="34"></p>
+<p>2.生成新数据（生成新的HTML网页会存放到public文件夹下）</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/35-1590912236921.png" alt="35"></p>
+<p>如果结果连续出现以下内容，则表示执行成功。</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/36-1590912247806.jpg" alt="36"></p>
+<p>3.启动hexo服务</p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/37-1590912252974.png" alt="37"></p>
+<p>如果发现有“Hexo is running at <a href="http://localhost:4000/字符串，则表示启动成功，hexo当前就运行在该网址上面。上述指令中的s表示server。" target="_blank" rel="noopener">http://localhost:4000/字符串，则表示启动成功，hexo当前就运行在该网址上面。上述指令中的s表示server。</a></p>
+<p><img src="../images/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%89/38-1590912259097.jpg" alt="38"></p>
+<p>4.博客预览：在浏览器中输入上述网址<a href="http://localhost:4000/,如果看到新页面则大功告成。" target="_blank" rel="noopener">http://localhost:4000/,如果看到新页面则大功告成。</a></p>
+]]></content>
   </entry>
   <entry>
     <title>我的博客搭建过程二</title>
