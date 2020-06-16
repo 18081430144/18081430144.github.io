@@ -150,4 +150,133 @@
 <p>然后把images中的图片拖到Typora你需要的位置中，保存后执行 hexo s 本地预览看到图片就完成了！</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>蓝牙定时器连接与配对（项目一）</title>
+    <url>/2020/06/16/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="实现蓝牙定时器的连接与配对"><a href="#实现蓝牙定时器的连接与配对" class="headerlink" title="实现蓝牙定时器的连接与配对"></a>实现蓝牙定时器的连接与配对</h1><h3 id="一、写代码"><a href="#一、写代码" class="headerlink" title="一、写代码"></a>一、写代码</h3><blockquote>
+<p>注：这里用Visual Studio Code来编写代码</p>
+</blockquote>
+<p>如图：</p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9911-1592300134963.png" alt="蓝牙11"></p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9912-1592300195405.png" alt="蓝牙12"></p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9913.png" alt="蓝牙13"></p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9914.png" alt="蓝牙14"></p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9915.png" alt="蓝牙15"></p>
+<p>代码如下：</p>
+<html>
+
+  <head>
+
+<pre><code>&lt;script&gt;</code></pre><p>​    var  selected_device;</p>
+<p>​    var  selected_server;</p>
+<p>​    var  connected = false;</p>
+<p>​    function discoverOrdisconnectDevices()//发现或断开函数</p>
+<p>​    {</p>
+<p>​      console.log(“discoverDeviceOrDisconnect”);</p>
+<p>​      if(!connected)</p>
+<p>​        discoverDevices();</p>
+<p>​      else</p>
+<p>​      {</p>
+<p>​        selected_device.gatt.disconnect();</p>
+<p>​      }</p>
+<p>​    }</p>
+<p>​    function onDisconnected()</p>
+<p>​    {</p>
+<p>​      console.log(“onDisconnected”);</p>
+<p>​      resetUI();</p>
+<p>​    }</p>
+<p>​    function discoverDevices()</p>
+<p>​    {</p>
+<p>​      console.log(“discoverDevices”);//console.log控制台打印输出</p>
+<p>​      var options = {acceptAllDevices:true}//发现所有周边蓝牙设备</p>
+<p>​      navigator.bluetooth.requestDevice(options)//Navigator对象：包含有关浏览器的信息</p>
+<p>​      .then(device =&gt; {</p>
+<p>​        console.log(‘&gt; Name:’ + device.name);</p>
+<p>​        console.log(‘&gt; Id:’ + device.id);</p>
+<p>​        console.log(‘&gt; Connected:’ + device.gatt.connected);</p>
+<p>​        selected_device = device;</p>
+<p>​        console.log(selected_device);</p>
+<p>​        connect();</p>
+<p>​      })</p>
+<p>​      .catch(error =&gt; {</p>
+<p>​        alert(‘ERROR’ +error);</p>
+<p>​        console.log(‘ERROR’ +error);</p>
+<p>​      })</p>
+<p>​    }</p>
+<p>​    function connect()</p>
+<p>​    {</p>
+<p>​      console.log(“connecting”);</p>
+<p>​      selected_device.gatt.connect()</p>
+<p>​      .then(</p>
+<p>​        function (server)</p>
+<p>​        {</p>
+<p>​          console.log(“Connected to” + server.device.id);</p>
+<p>​          console.log(“Connected “ + server.connected);</p>
+<p>​          selected_device.addEventListener(‘gattseverdisconnected’,onDisconnected);</p>
+<p>​          connected_server =server;</p>
+<p>​          setConnectedStatus(true);</p>
+<p>​        },</p>
+<p>​        function (error)</p>
+<p>​        {</p>
+<p>​          console.log(“ERROR:could not connct-“ + error);</p>
+<p>​          alert(“ERROR:could not connct-“ + error);</p>
+<p>​          setConnectedStatus(false);</p>
+<p>​        }</p>
+<p>​      );</p>
+<p>​    }</p>
+<p>​    function setConnectedStatus(status)</p>
+<p>​    {</p>
+<p>​      connected = status;</p>
+<p>​      document.getElementById(‘Status_connected’).innerHTML = status;</p>
+<p>​      if(status == true)</p>
+<p>​      {</p>
+<p>​        document.getElementById(‘btn_scan’).innerHTML = “Disconnect”;</p>
+<p>​      }</p>
+<p>​      else</p>
+<p>​      {</p>
+<p>​        document.getElementById(‘btn_scan’).innerHTML = “Discover Devices”;</p>
+<p>​      }</p>
+<p>​    }</p>
+<p>​    function resetUI()</p>
+<p>​    {</p>
+<p>​      </p>
+<p>​    }</p>
+<p>​    </script> </p>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+
+<p>​    <h2></p>
+<p>​      Status</p>
+<p>​    </h2></p>
+<pre><code>&lt;table border=&quot;1&quot;&gt;</code></pre><p>​      <tr></p>
+<p>​        <td>  <b>Connected</b>  </td></p>
+<p>​      </tr></p>
+<p>​      <tr></p>
+<p>​        <td id="Status_connected">false</td></p>
+<p>​      </tr></p>
+<p>​    </table></p>
+<p>​    <h2></p>
+<p>​      Device Discovery</p>
+<p>​    </h2></p>
+<p>​    <button id = "btn_scan" onclick="discoverDevices()">Start scan</button></p>
+  </body>
+
+</html>
+
+<h3 id="二、连接板子"><a href="#二、连接板子" class="headerlink" title="二、连接板子"></a>二、连接板子</h3><p>将板子和数据线插好，连接在电脑的USB接口上将</p>
+<p>然后将 <a href="......\Desktop\蓝牙定时器\microbit-SIG-web-bluetooth-tutorial.hex">microbit-SIG-web-bluetooth-tutorial.hex</a> 拖动到板子插上后电脑上多出的盘符中。</p>
+<h3 id="三、配对"><a href="#三、配对" class="headerlink" title="三、配对"></a>三、配对</h3><p>将写好的代码保存在桌面，以谷歌浏览器方式打开，如下图：</p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9916.jpg" alt="蓝牙16"></p>
+<p>然后我们点击Start scan就会出现可以连接的设备，如下图：</p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9917.png" alt="蓝牙17"></p>
+<p>这个时候点击BBC micro:bit [tezut]，然后点击配对，如下图：</p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9919.jpg" alt="蓝牙19"></p>
+<p>此时，浏览器中就会显示ture ，说明显示成功。如下图：</p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%9918.jpg" alt="蓝牙18"></p>
+<p>这个时候板子上就会显示C，如下图：</p>
+<p><img src="/../images/%E8%93%9D%E7%89%99%E5%AE%9A%E6%97%B6%E5%99%A8%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%85%8D%E5%AF%B9%EF%BC%88%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%89/%E8%93%9D%E7%89%99120.jpg" alt="蓝牙120"></p>
+<p>本次蓝牙定时器连接与配对成功！</p>
+]]></content>
+  </entry>
 </search>
